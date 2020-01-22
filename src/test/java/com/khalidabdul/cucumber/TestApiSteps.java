@@ -2,6 +2,7 @@ package com.khalidabdul.cucumber;
 
 import com.khalidabdul.api.DataController;
 import com.khalidabdul.data.MovieDatabase;
+import com.khalidabdul.data.Search;
 import com.khalidabdul.response.GetByIDResponse;
 import com.khalidabdul.response.GetBySearchResponse;
 import com.khalidabdul.response.GetByTitleResponse;
@@ -88,8 +89,9 @@ public class TestApiSteps extends ScenarioSteps {
     // THEN
     @Then("get by search response equals with request")
     public void get_by_search_response_equals_with_request () {
-        GetBySearchResponse response = DataController.getBySearch();
-        assertThat(String.valueOf(response.getSearch()), Matchers.containsString(MovieDatabase.s));
+        Search[] response = DataController.getBySearch().getSearch();
+//        GetBySearchResponse response = DataController.getBySearch();
+        assertThat(String.valueOf(response), Matchers.containsString(MovieDatabase.s));
     }
 
     @Then("get by search and page response equals with request")
@@ -108,7 +110,7 @@ public class TestApiSteps extends ScenarioSteps {
     @Then("get by id response equals with request")
     public void get_by_id_response_equals_with_request () {
         GetByIDResponse response = DataController.getByID();
-        assertThat(response.getImdbid(), equalTo(MovieDatabase.i));
+        assertThat(response.getImdbID(), equalTo(MovieDatabase.i));
         System.out.println(response);
     }
 }

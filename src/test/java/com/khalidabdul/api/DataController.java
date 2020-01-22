@@ -1,6 +1,7 @@
 package com.khalidabdul.api;
 import com.khalidabdul.data.MovieDatabase;
 import com.khalidabdul.response.GetByIDResponse;
+import com.khalidabdul.response.GetBySearchErrorResponse;
 import com.khalidabdul.response.GetBySearchResponse;
 import com.khalidabdul.response.GetByTitleResponse;
 import net.serenitybdd.rest.SerenityRest;
@@ -26,11 +27,27 @@ public class DataController {
     return response;
   }
 
+  public static GetBySearchErrorResponse getBySearchError () {
+    GetBySearchErrorResponse response = SerenityRest.given()
+            .header("Content-Type", "application/json")
+            .get("http://www.omdbapi.com/?" + URL_api + URL_search)
+            .getBody().as(GetBySearchErrorResponse.class);
+    return response;
+  }
+
   public static GetBySearchResponse getBySearchAndPage () {
     GetBySearchResponse response = SerenityRest.given()
             .header("Content-Type", "application/json")
             .get("http://www.omdbapi.com/?" + URL_api + URL_search + URL_page)
             .getBody().as(GetBySearchResponse.class);
+    return response;
+  }
+
+  public static GetBySearchErrorResponse getBySearchAndPageError () {
+    GetBySearchErrorResponse response = SerenityRest.given()
+            .header("Content-Type", "application/json")
+            .get("http://www.omdbapi.com/?" + URL_api + URL_search + URL_page)
+            .getBody().as(GetBySearchErrorResponse.class);
     return response;
   }
 

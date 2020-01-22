@@ -1,5 +1,7 @@
 package com.khalidabdul.data;
 
+import com.khalidabdul.response.GetBySearchResponse;
+
 public class MovieDatabase {
 
     public static String apikey = "28d2634c";
@@ -17,4 +19,6 @@ public class MovieDatabase {
     //BY SEARCH
     public static String s = "";            // Movie title to search    -required
     public static int page = 1;             // Page number to return
+
+    public static GetBySearchResponse response;
 }

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class RatingsData {
-    public String source;
-    public String value;
+    public String Source;
+    public String Value;
 }
