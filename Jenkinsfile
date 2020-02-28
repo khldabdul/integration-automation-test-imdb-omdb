@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout SCM') {
       steps {
-        git(url: 'https://github.com/khldabdul/integration-automation-test-imdb-ui-and-omdb-api.git', branch: 'master')
+        git(url: 'https://github.com/khldabdul/integration-automation-test-imdb-omdb.git', branch: 'master')
       }
     }
     stage('Smoke Test') {
